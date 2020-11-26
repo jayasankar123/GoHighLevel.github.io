@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="service-checkout" transform="translate(-477.000000, -449.000000)" fill="#FFFFFF">
+            <g id="modal" transform="translate(440.000000, 224.000000)">
+                <g id="1" transform="translate(30.000000, 217.000000)">
+                    <g id="icon" transform="translate(0.000000, 1.000000)">
+                        <g id="Group-2" transform="translate(7.000000, 7.000000)">
+                            <path d="M8,14 C4.691,14 2,11.308 2,7.999 C2,4.691 4.691,2 8,2 C11.308,2 14,4.691 14,7.999 C14,11.308 11.308,14 8,14 M0,7.999 C0,12.418 3.581,16 8,16 C12.418,16 16,12.418 16,7.999 C16,3.581 12.418,0 8,0 C3.581,0 0,3.581 0,7.999 Z" id="icon"></path>
+                            <text id="$" font-family="Roboto-Black, Roboto" font-size="10" font-weight="700">
+                                <tspan x="5.00848906" y="11.9997">$</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/GoHighLevel.github.io/static/css/main.f20657f0.chunk.css",
+    "main.js": "/GoHighLevel.github.io/static/js/main.504a7e80.chunk.js",
+    "main.js.map": "/GoHighLevel.github.io/static/js/main.504a7e80.chunk.js.map",
+    "runtime-main.js": "/GoHighLevel.github.io/static/js/runtime-main.b47980ee.js",
+    "runtime-main.js.map": "/GoHighLevel.github.io/static/js/runtime-main.b47980ee.js.map",
+    "static/js/2.f547fcf7.chunk.js": "/GoHighLevel.github.io/static/js/2.f547fcf7.chunk.js",
+    "static/js/2.f547fcf7.chunk.js.map": "/GoHighLevel.github.io/static/js/2.f547fcf7.chunk.js.map",
+    "static/js/3.1b5e4a1e.chunk.js": "/GoHighLevel.github.io/static/js/3.1b5e4a1e.chunk.js",
+    "static/js/3.1b5e4a1e.chunk.js.map": "/GoHighLevel.github.io/static/js/3.1b5e4a1e.chunk.js.map",
+    "index.html": "/GoHighLevel.github.io/index.html",
+    "static/css/main.f20657f0.chunk.css.map": "/GoHighLevel.github.io/static/css/main.f20657f0.chunk.css.map",
+    "static/js/2.f547fcf7.chunk.js.LICENSE.txt": "/GoHighLevel.github.io/static/js/2.f547fcf7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b47980ee.js",
+    "static/js/2.f547fcf7.chunk.js",
+    "static/css/main.f20657f0.chunk.css",
+    "static/js/main.504a7e80.chunk.js"
+  ]
+}
