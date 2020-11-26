@@ -1,4 +1,5 @@
 {
+  "homepage":"http://jayasankar123.github.io/GoHighLevel.github.io",
   "name": "highlevelapp",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +13,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,5 +37,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

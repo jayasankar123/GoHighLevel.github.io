@@ -1,43 +1,1062 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+  <meta charset="UTF-8">
+  <title>HighLevel</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <!--Main Styles (compiled & minified by GulpJS)-->
+  <link rel="stylesheet" type="text/css" href="./css/styles.min.css">
+  <!-- <link rel="stylesheet href="newStyles"> -->
+  <!-- Dependency Scripts (jQuery v3.1.1 & Bootstrap v4 beta 3) -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
+  <!-- Plugins & Custom Scripts (concatenated and minified by GulpJS) -->
+  <script src="./js/scripts.min.js"></script>
+  <!-- HighChart Scripts -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/funnel.js"></script>
+  <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+  <!-- FullCalendar -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
+  <!-- Datepicker -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <!-- FontAwesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+  <!--Favicons-->
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+  <link rel="manifest" href="./favicons/site.webmanifest">
+  <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#777777">
+  <link rel="shortcut icon" href="./favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="./favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <!-- <script src="https://unpkg.com/browse/react@17.0.1/umd/react.development.js"></script>
+  <script src="https://unpkg.com/browse/react-dom@17.0.1/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/browse/babel-standalone@6.26.0/babel.js"></script> -->
+  <!-- <script src="index.jsx"></script> -->
+</head>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<body>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+  <nav class="hl_navbar shrink" id="navbar">
+    <div class="hl_navbar--inner">
+      <a href="./" class="hl_navbar--logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26">
+          <image width="28" height="26" xlink:href="data:img/png;base64,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"
+          />
+        </svg>
+      </a>
+      <button class="hl_navbar--toggler" type="button" id="navbar-toggler">
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+      </button>
+      <div class="hl_navbar--collapse" id="navbar-collapse">
+        <button class="hl_navbar--button btn btn-success btn-block" data-toggle="modal" data-target="#client-checkin--modal">Check In Client</button>
+        <ul class="hl_navbar--links list-unstyled" id="nav-links">
+          <li id="nav-dashboard">
+            <a href="./" data-tooltip="nav-tooltip" data-placement="right" title="Dashboard">
+              <i class="icon-duplicate"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li id="nav-widgets">
+            <a href="./widgets.html" data-tooltip="nav-tooltip" data-placement="right" title="Widgets">
+              <i class="icon-tiles-filled"></i>
+              <span>Widgets</span>
+            </a>
+          </li>
+          <li id="nav-marketing">
+            <a data-toggle="collapse" href="#nav-marketing-collapse" role="button" aria-expanded="false" aria-controls="nav-marketing-collapse" data-tooltip="nav-tooltip" data-placement="right" title="Marketing">
+              <i class="icon-mail"></i>
+              <span>Marketing</span>
+              <i class="caret icon-arrow-down-1"></i>
+            </a>
+            <div class="collapse nav-dropdown-links" id="nav-marketing-collapse">
+              <ul>
+                <li class="active">
+                  <a href="./customer-acquisition.html">Customer Acquisition</a>
+                </li>
+                <li>
+                  <a href="./triggers.html">Triggers</a>
+                </li>
+                <li>
+                  <a href="./funnel-details.html">Funnels</a>
+                </li>
+                <li>
+                  <a href="./workflow.html">Workflow</a>
+                </li>
+                <li>
+                  <a href="./form-builder.html">Form Builder</a>
+                </li>
+                <li>
+                  <a href="./landing-page-creator.html">Page Creator</a>
+                </li>
+                <li>
+                  <a href="#">Product Adoption</a>
+                </li>
+                <li>
+                  <a href="#">Product Upsell</a>
+                </li>
+                <li>
+                  <a href="#">Content Library</a>
+                </li>
+                <li>
+                  <a href="#">Snapshot Widget</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li id="nav-reviews">
+            <a href="./reviews.html" data-tooltip="nav-tooltip" data-placement="right" title="Reviews">
+              <i class="icon-bubble-filled"></i>
+              <span>Reviews</span>
+            </a>
+          </li>
+          <li id="nav-customers">
+            <a data-toggle="collapse" href="#nav-customer-collapse" role="button" aria-expanded="false" aria-controls="nav-customer-collapse" data-tooltip="nav-tooltip" data-placement="right" title="Customers">
+              <i class="icon-user"></i>
+              <span>Customers</span>
+              <i class="caret icon-arrow-down-1"></i>
+            </a>
+            <div class="collapse nav-dropdown-links" id="nav-customer-collapse">
+              <ul>
+                <li class="active">
+                  <a href="./contact-details.html">Contact Details</a>
+                </li>
+                <li>
+                  <a href="./customers.html">Customers</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li id="nav-team">
+            <a href="./team.html" data-tooltip="nav-tooltip" data-placement="right" title="Team">
+              <i class="icon-heart"></i>
+              <span>Team</span>
+            </a>
+          </li>
+          <li id="nav-online-analysis">
+            <a href="./online-analysis.html" data-tooltip="nav-tooltip" data-placement="right" title="Online Analysis">
+              <i class="icon-pulse"></i>
+              <span>Online Analysis</span>
+            </a>
+          </li>
+          <li id="nav-opportunities">
+            <a href="./opportunities.html" data-tooltip="nav-tooltip" data-placement="right" title="Opportunities">
+              <i class="icon-blocks"></i>
+              <span>Opportunities</span>
+            </a>
+          </li>
+          <li id="nav-conversations">
+            <a href="./conversations.html" data-tooltip="nav-tooltip" data-placement="right" title="Conversations">
+              <i class="icon-bubble"></i>
+              <span>Conversations</span>
+            </a>
+          </li>
+          <li id="nav-calendar">
+            <a href="./calendar.html" data-tooltip="nav-tooltip" data-placement="right" title="Calendar">
+              <i class="icon-calendar"></i>
+              <span>Calendar</span>
+            </a>
+          </li>
+          <li id="nav-settings">
+            <a href="./settings-profile.html" data-tooltip="nav-tooltip" data-placement="right" title="Settings">
+              <i class="icon-settings-1"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li id="nav-social">
+            <a href="./social.html" data-tooltip="nav-tooltip" data-placement="right" title="Social Media">
+              <i class="icon-target-2"></i>
+              <span>Social Media</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END of .hl_navbar -->
+
+  <!-- Client Check In Modal -->
+  <div class="modal fade" id="client-checkin--modal" tabindex="-1" role="dialog" aria-labelledby="client-checkin--modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-header--inner">
+            <h5 class="modal-title" id="client-checkin--modalLabel"><i class="icon icon-user --green"></i> Client Check In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body--inner">
+            <div class="form-group">
+              <label>Customer Phone or Email:</label>
+              <input type="text" class="form-control" placeholder="Customer Phone or Email">
+            </div>
+            <div class="form-group">
+              <label>Customer Name:</label>
+              <input type="text" class="form-control" placeholder="Customer Name">
+            </div>
+            <div class="modal-buttons d-flex align-items-center justify-content-between">
+              <button type="button" class="btn btn-link">Send to Multiple Clients</button>
+              <button type="button" class="btn btn-success">Send a Review Invite</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header class="hl_header nav-shrink --call-in">
+    <div class="container-fluid">
+      <select class="selectpicker hl_header--picker" data-width="fit" data-header="Switch Location <a href='#'>View Locations</a>">
+        <option data-content="<img src='./img/img-converse.png'> Converse Store #32">Converse Store #32</option>
+        <option data-content="<img src='./img/img-nike1.png'> Nike Store, 49 Garnet Stream, Baja, CA">Nike Store, 49 Garnet Stream, Baja, CA</option>
+        <option data-content="<img src='./img/img-nike2.png'> Nike Store, Andersen Center 83b, West 82nd Street, San Francisco, CA">Nike Store, Andersen Center 83b, West 82nd Street, San Francisco, CA</option>
+      </select>
+      <div class="hl_call-bar --in">
+        <div class="call-type">
+          <i class="icon icon-arrow-up-2"></i>
+          <p>In</p>
+        </div>
+        <div class="hl_call-bar--inner">
+          <div class="caller-id">
+            <h4>Shaun Clark</h4>
+            <p>HighLevel Company</p>
+          </div>
+          <div class="call-buttons">
+            <button type="button" class="btn btn-circle"><i class="icon icon-mic-off"></i>
+            </button>
+            <button type="button" class="btn btn-circle btn-arrows"><i class="icon icon-arrows-up-down"></i>
+            </button>
+            <div class="call-dial dropdown --no-caret">
+              <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon icon-dots"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <div class="dial-numbers">
+                  <div class="dial-item">
+                    <a href="#" class="number">1</a>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">2</a>
+                    <span class="letters">ABC</span>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">3</a>
+                    <span class="letters">DEF</span>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">4</a>
+                    <span class="letters">GHI</span>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">5</a>
+                    <span class="letters">JKL</span>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">6</a>
+                    <span class="letters">MNO</span>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">7</a>
+                    <span class="letters">PQRS</span>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">8</a>
+                    <span class="letters">TUV</span>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">9</a>
+                    <span class="letters">WXYZ</span>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">*</a>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">0</a>
+                  </div>
+                  <div class="dial-item">
+                    <a href="#" class="number">#</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="call-actions">
+          <p class="call-time">00:00:14</p>
+          <button type="button" class="btn btn-circle-sm btn-danger btn-call"><i class="fas fa-phone"></i>
+          </button>
+          <button type="button" class="btn btn-info btn-xs btn-next-lead">Call next Lead <i class="icon icon-arrow-right-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END of .hl_header -->
+
+  <div class="hl_recent-activities">
+    <div class="hl_recent-activities--inner">
+      <ul class="hl_recent-activities--list list-unstyled">
+        <li class="hl_recent-activities--item --notification">
+          <div class="avatar --sm">
+            <div class="avatar_img --blue">
+              BM
+            </div>
+          </div>
+          <p><strong>Bruce Mann</strong> sent a Review Request to Amanda Nunes.</p>
+          <p class="location">Nike Store, 49 Garnet Stream, Baja, CA</p>
+          <p class="time-date">10 min ago</p>
+        </li>
+        <li class="hl_recent-activities--item --notification">
+          <div class="avatar --sm">
+            <div class="avatar_img">
+              <img src="./img/img-avatar-sample4.png" alt="Avatar Name">
+            </div>
+          </div>
+          <p><strong>Henry J.</strong> sent a Review Request to Amanda Nunes.</p>
+          <p class="location">Nike Store, 49 Garnet Stream, Baja, CA</p>
+          <p class="time-date">10 min ago</p>
+        </li>
+        <li class="hl_recent-activities--item --notification">
+          <span class="recent-activities--icon --rating">
+          <i class="icon icon-star-filled"></i>
+        </span>
+          <p>Our Average Rating went up!</p>
+          <p class="location">Nike Store, 49 Garnet Stream, Baja, CA</p>
+          <p class="time-date">10 min ago</p>
+        </li>
+        <li class="hl_recent-activities--item">
+          <span class="recent-activities--icon --reviews">
+          <i class="icon icon-send"></i>
+        </span>
+          <p>Milestone of 5,000 team ReviewRequestes hit!</p>
+          <p class="location">Nike Store, 49 Garnet Stream, Baja, CA</p>
+          <p class="time-date">10 min ago</p>
+        </li>
+        <li class="hl_recent-activities--item">
+          <div class="avatar --sm">
+            <div class="avatar_img --orange">
+              GT
+            </div>
+          </div>
+          <p><strong>Gerald Terry</strong> sent a Review Request to Amanda Nunes.</p>
+          <p class="location">Nike Store, 49 Garnet Stream, Baja, CA</p>
+          <p class="time-date">10 min ago</p>
+        </li>
+        <li class="hl_recent-activities--item">
+          <div class="avatar --sm">
+            <div class="avatar_img --green">
+              RF
+            </div>
+          </div>
+          <p><strong>Ricardo Foster</strong> sent a Review Request to Amanda Nunes.</p>
+          <p class="location">Nike Store, 49 Garnet Stream, Baja, CA</p>
+          <p class="time-date">10 min ago</p>
+        </li>
+        <li class="hl_recent-activities--item">
+          <div class="avatar --sm">
+            <div class="avatar_img">
+              <img src="./img/img-avatar-sample2.png" alt="Avatar Name">
+            </div>
+          </div>
+          <p><strong>Samantha Irving</strong> sent a Review Request to Amanda Nunes.</p>
+          <p class="location">Nike Store, 49 Garnet Stream, Baja, CA</p>
+          <p class="time-date">10 min ago</p>
+        </li>
+        <li class="hl_recent-activities--item">
+          <div class="avatar --sm">
+            <div class="avatar_img">
+              <img src="./img/img-avatar-sample3.png" alt="Avatar Name">
+            </div>
+          </div>
+          <p><strong>Cecelia Atkins</strong> sent a Review Request to Amanda Nunes.</p>
+          <p class="location">Nike Store, 49 Garnet Stream, Baja, CA</p>
+          <p class="time-date">10 min ago</p>
+        </li>
+        <li class="hl_recent-activities--item">
+          <div class="avatar --sm">
+            <div class="avatar_img --purple">
+              NP
+            </div>
+          </div>
+          <p><strong>Norman E. Parque</strong> sent a Review Request to Amanda Nunes.</p>
+          <p class="location">Nike Store, 49 Garnet Stream, Baja, CA</p>
+          <p class="time-date">10 min ago</p>
+        </li>
+        <li class="hl_recent-activities--item">
+          <a href="#">Load More</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- END of .recent_activities -->
+
+  <div class="modal review-link--modal" tabindex="-1" role="dialog" id="review-link--modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-body">
+          <img src="./img/img-link-review-copied.png">
+          <h4>Link copied to clipboard!</h4>
+          <p>www.somekindoflink.com/mycompanyname/213213</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="hl_wrapper nav-shrink d-flex">
+
+    <section class="hl_wrapper--inner workflow" id="workflow">
+
+      <section class="hl_workflow--main">
+
+        <ul class="flow_main" id="root">
+          <!-- <div id="root"></div> -->
+        </ul>
+
+      </section>
+      <!-- END of .hl_workflow--main -->
+      <!-- <aside class="hl_workflow--sidebar">
+        <a href="#" class="hide-sidebar" id="hide-sidebar"><i class="icon icon-arrow-right-1"></i></a>
+        <div class="hl_workflow--sidebar-header">
+          <h2>Actions</h2>
+          <div class="search-form">
+            <i class="icon icon-loupe"></i>
+            <input type="text" class="form-control form-light" placeholder="Search Actions">
+          </div>
+        </div>
+        <div class="hl_workflow--sidebar-inner">
+          <div class="accordion" id="workflow-action-collapse">
+            <div class="actions-set">
+              <a class="collapsed" data-toggle="collapse" href="#actions-set1" role="button" aria-expanded="false" aria-controls="actions-set1">
+                <span>Sending Options</span>
+                <i class="caret icon-arrow-down-1"></i>
+              </a>
+              <div class="collapse" id="actions-set1" data-parent="#workflow-action-collapse">
+                <ul class="actions-list">
+                <li draggable="true" id="email" ondragstart="(event) =>{event.dataTransfer.setData('text',event.target.id)}">Send email</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Send a site message</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li draggable="true" id="sms"><span>Send SMS</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Notify Someone</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="actions-set">
+              <a class="collapsed" data-toggle="collapse" href="#actions-set2" role="button" aria-expanded="false" aria-controls="actions-set2">
+                <span>Conditions and workflow</span>
+                <i class="caret icon-arrow-down-1"></i>
+              </a>
+              <div class="collapse" id="actions-set2" data-parent="#workflow-action-collapse">
+                <ul class="actions-list">
+                  <li><span>Wait</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li draggable="true" id="ifElse"><span>If / Else</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Split</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Go to</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Goal</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Start an automation</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>End this automation</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>End other automation</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Webhook</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="actions-set">
+              <a class="collapsed" data-toggle="collapse" href="#actions-set3" role="button" aria-expanded="false" aria-controls="actions-set3">
+                <span>Contacts</span>
+                <i class="caret icon-arrow-down-1"></i>
+              </a>
+              <div class="collapse" id="actions-set3" data-parent="#workflow-action-collapse">
+                <ul class="actions-list">
+                  <li><span>Subscribe</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Unsubscribe</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Convert</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Update contact</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Add tag</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Remove tag</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Add note</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Add to Facebook Custom Audience</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Remove from Facebook Custom Audience</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Adjust score</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="actions-set">
+              <a class="collapsed" data-toggle="collapse" href="#actions-set4" role="button" aria-expanded="false" aria-controls="actions-set4">
+                <span>CRM</span>
+                <i class="caret icon-arrow-down-1"></i>
+              </a>
+              <div class="collapse" id="actions-set4" data-parent="#workflow-action-collapse">
+                <ul class="actions-list">
+                  <li><span>Add deal</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Update title</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Update status</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Update owner</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Update value</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Update stage</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Update custom field</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Add task</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Add note</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Complete task</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                  <li><span>Adjust score</span>  <i class="icon icon-resize-plus-2"></i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </aside> -->
+      <!-- END of .hl_workflow--sidebar -->
+
+      <!-- Client Check In Modal -->
+      <div class="modal fade new-automation-modal" id="new-automation-modal" tabindex="-1" role="dialog" aria-labelledby="new-automation-modalLabel" aria-hidden="true">
+        <div class="modal-dialog --mid2" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="modal-header--inner">
+                <h5 class="modal-title" id="new-automation-modalLabel">Create a New Automation</h5>
+                <div class="search-form">
+                  <i class="icon icon-loupe"></i>
+                  <input type="text" class="form-control form-light" placeholder="Search Recipes">
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="categories-menu">
+                <ul class="recipe-stats">
+                  <li>
+                    <span><i class="icon icon-heart"></i> Favorites</span>
+                    <span class="number">1</span>
+                  </li>
+                  <li>
+                    <span><i class="icon icon-cart"></i> Purchased</span>
+                    <span class="number">0</span>
+                  </li>
+                </ul>
+                <hr>
+                <h4>Categories</h4>
+                <ul class="categories-menu-list accordion" id="categories-menu-list">
+                  <li>
+                    <a href="#">All Recipe</a>
+                  </li>
+                  <li>
+                    <a href="#">Start from Scratch</a>
+                  </li>
+                  <li>
+                    <a href="#">Recommended</a>
+                  </li>
+                  <li>
+                    <a class="collapse-nav collapsed" data-toggle="collapse" href="#categories-collapse1" role="button"><span>Increase Revenue</span> <i class="caret icon-arrow-down-1"></i></a>
+                    <ul class="collapse" id="categories-collapse1" data-parent="#categories-menu-list">
+                      <li>
+                        <a href="#">Prospect Follow-up</a>
+                      </li>
+                      <li>
+                        <a href="#">Customer Follow-up</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="collapse-nav collapsed" data-toggle="collapse" href="#categories-collapse2" role="button"><span>Increase Traffic</span> <i class="caret icon-arrow-down-1"></i></a>
+                    <ul class="collapse" id="categories-collapse2" data-parent="#categories-menu-list">
+                      <li>
+                        <a href="#">Increase Referrals</a>
+                      </li>
+                      <li>
+                        <a href="#">Grow Your Community</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="collapse-nav collapsed" data-toggle="collapse" href="#categories-collapse3" role="button"><span>Automate Sales Team</span> <i class="caret icon-arrow-down-1"></i></a>
+                    <ul class="collapse" id="categories-collapse3" data-parent="#categories-menu-list">
+                      <li>
+                        <a href="#">Automate Sales Pipeline</a>
+                      </li>
+                      <li>
+                        <a href="#">Lead Scoring</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="collapse-nav collapsed" data-toggle="collapse" href="#categories-collapse4" role="button"><span>Boost Contact Satisfaction</span> <i class="caret icon-arrow-down-1"></i></a>
+                    <ul class="collapse" id="categories-collapse4" data-parent="#categories-menu-list">
+                      <li>
+                        <a href="#">Strengthen Relationship</a>
+                      </li>
+                      <li>
+                        <a href="#">Customer Support</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="collapse-nav collapsed" data-toggle="collapse" href="#categories-collapse5" role="button"><span>Manage & Track Contacts</span> <i class="caret icon-arrow-down-1"></i></a>
+                    <ul class="collapse" id="categories-collapse5" data-parent="#categories-menu-list">
+                      <li>
+                        <a href="#">Contact Scoring</a>
+                      </li>
+                      <li>
+                        <a href="#">Contact Management</a>
+                      </li>
+                      <li>
+                        <a href="#">Track Contacts</a>
+                      </li>
+                      <li>
+                        <a href="#">Apply Interest Tags</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <p><a href="#" class="btn btn-primary btn-block">Discover More Recipes</a>
+                </p>
+              </div>
+              <div class="automation-import">
+                <a href="#" class="btn btn-light3"><i class="icon icon-share-1"></i> Import Automation</a>
+              </div>
+              <div class="automation-continue">
+                <a href="#" class="btn btn-success">Continue</a>
+              </div>
+              <div class="automation-list-wrap">
+                <ul class="automation-list" id="automation-list">
+                  <li class="active">
+                    <h3>Start from Scratch</h3>
+                    <p>Start from scratch with a fresh, clean slate for your automation and add your own triggers and actions.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Start from Scratch</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Product Interest Targeted Follow-up</h3>
+                    <p>Deliver messages that align with the product a contact is interested in. It begins when a product interest tag is applied. It should send content and offers that are related to that product interest so you can strengthen your relationship
+                      with the contact and incentivize them to make a purchase.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Prospect Follow-up, Recommended</p>
+                    <span class="favorite active"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Part 1 - Engagement Tagging</h3>
+                    <p>Keep up-to-date tags on your contacts based on their engagement level. These tags are useful for analytics, segmentation, and list hygiene. Import Part 1 of this two part automation first. Both automations must be imported for them
+                      to work.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Recommended, Track Contacts</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Part 2 - Engagement Tagging</h3>
+                    <p>Keep up-to-date tags on your contacts based on their engagement level. These tags are useful for analytics, segmentation, and list hygiene. Import Part 1 of this two part automation first. Both automations must be imported for them
+                      to work.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Recommended, Track Contacts</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Product Interest Tagging</h3>
+                    <p>Tag contacts who have repeatedly visited a product page on your website. If they visit the product page two to five times they are tagged as "Interested in Product X." If they visit six or more times they are tagged as "Very interested
+                      in Product X." Use these tags to segment and send targeted offers. Set up Site Tracking before you import this recipe.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Apply Interest Tags, Recommended</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Upgrade Incentive and Outreach</h3>
+                    <p>Send a series of emails to contacts that have viewed your upgrade page. The automation ends when they have made a purchase. This begins a conversation with your contact giving you a chance to address their concerns. You also gain valuable
+                      insight into your customers' pre-purchase hang-ups, so that you can improve your marketing copy and purchase process.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Accessory Upsell After Purchase</h3>
+                    <p>Make sure your contacts have everything they need to complete their product experience. If a customer purchases a product, but does not purchase the accessory, send them an email to ask if they want to add that accessory item to their
+                      order before it ships. You may want to incentivize this with a coupon or free shipping.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>"Forward a Campaign" Incentive</h3>
+                    <p>Reward your contacts for forwarding your email campaigns. Once a contact forwards your campaign, they will get an email with a coupon or other offer. To encourage this, you could place a call to action at the bottom of all your email
+                      campaigns. The incentive will encourage sharing and increase purchase frequency.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Grow Your Community, Increase Referrals</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>"Share a Campaign on Social Media" Incentive</h3>
+                    <p>Reward your contacts for sharing your campaign on social media. To encourage this, include a call to action at the bottom of your email campaigns. Once a contact shares the campaign on social media, they get an email with the incentive
+                      offered. Rewarding them with a coupon will motivate them to share and increase purchase frequency.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Grow Your Community, Increase Referrals</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Invite to Follow When Referred by a Social Media Site</h3>
+                    <p>If a contact visits your site from a social media service (like Twitter or Facebook), send an email inviting them to follow you on social media. You could easily add additional social networks—just make sure to use the referring domain
+                      (as it is often not the domain of the network’s website). Set up Site Tracking before importing this recipe.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Grow Your Community</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>On Reply, Create a Task to Respond</h3>
+                    <p>Stay organized and on top of follow-up for your open deals. When a contact with an open deal emails you, automatically create a task that reminds you to reply. Before importing this recipe, you'll need to connect your email account
+                      (Settings > Deals > Add IMAP Account).</p>
+                    <p class="category"><i class="fas fa-archive"></i> Automate Sales Pipeline</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Re-engagement Campaign Triggered by "Disengaged" Tag</h3>
+                    <p>When a contact is tagged as “Disengaged,” send a re-engagement campaign. If they don't open or click a link within that re-engagement campaign, it will unsubscribe them. This will keep your deliverability high and prevent you from
+                      annoying people who aren't interested in what you send.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Management, Strengthen Relationship</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>"Need Help?" Message Triggered on Visit to Help Docs</h3>
+                    <p>Send out a "How can I help you?" email after a contact visits your help documentation. If they are a customer, they get an email from customer support. If they aren't a customer, they get an email (replies go to your sales team).</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Support</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Customer Service Follow-up</h3>
+                    <p>If a contact is given the tag "Customer service follow-up," a follow-up email is sent after one day. If the customer clicks the "not resolved" link, it will tell your support team to reach out to them, and redirect the contact to a
+                      form to collect more information. If they click the "resolved" link, it will remove the tag. You could apply the "Customer service follow-up" tag with Zapier by integrating with your help desk app.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Support</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Deduct Points for Unsubscribing From a List</h3>
+                    <p>Deduct points each time a contact unsubscribes from your list. The point value is a suggestion. You'll want to edit it to what makes sense for your score.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Scoring, Lead Scoring</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Add Points on Form Submits</h3>
+                    <p>Add points to a score each time a form is submitted. This might be used to add points each time a lead magnet form is submitted. The point value is a suggestion. You'll want to edit it to what makes sense for your score.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Scoring, Lead Scoring</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Add Points for Campaign Link Clicks</h3>
+                    <p>Add points to a score any time an email link is clicked. The point value is a suggestion. You'll want to edit it to what makes sense for your score.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Scoring, Lead Scoring</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Add Points for Email Opens</h3>
+                    <p>Add points to a score each time a campaign is opened. The point value is a suggestion. You'll want to edit it to what makes sense for your score.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Scoring, Lead Scoring</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Add Points for Page Views</h3>
+                    <p>Add points to a score each time a contact visits any page on your website. The point value is a suggestion. You'll want to edit it to what makes sense for your score.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Scoring, Lead Scoring</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Add Points on Visits to an Important Page</h3>
+                    <p>Add points to a score when a specific, important page of your website is visited. You might set this to be your pricing page, your shopping cart, or any other important page of your site. The point value is a suggestion. You'll want
+                      to edit it to what makes sense for your score.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Scoring, Lead Scoring</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Ecourse Delivery</h3>
+                    <p>Create an ecourse drip delivered by email. You can use the ecourse as an incentive to get more opt-in subscribers. The messages in the ecourse give you a chance to provide helpful information. This will help you strengthen your relationship
+                      with the contact, position you as an expert, and give you an opportunity to introduce your products or services.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Strengthen Relationship</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Opt-in Incentive Delivery</h3>
+                    <p>Give your contacts a reason to join your list. Offer something valuable in exchange for their contact information and then deliver the opt-in incentive automatically when they are subscribed. You can offer a free ebook, whitepaper,
+                      or video. The more valuable it is, the better it will work.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Prospect Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Identify Possible Advocates</h3>
+                    <p>If someone returns to your site over and over, it's safe to assume they're a fan. Apply a tag to keep track of repeat visitors. You could use this tag to begin a follow-up sequence that nurtures the relationship and encourages advocacy.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Grow Your Community</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Webinar Reminder Series</h3>
+                    <p>Maximize your webinar attendance by using this automation to remind your contacts it's coming. In this example, reminders are sent at 30 days, 14 days, 7 days, the day before, and day of the event—but you could easily modify it to
+                      whatever intervals you think will work best. Before importing this recipe, build a Date-based Custom Field for the webinar date.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Prospect Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Send New Blog Posts</h3>
+                    <p>Use RSS to automatically send out your newest blog when your feed is updated.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Customer Win Back Sequence</h3>
+                    <p>When a “Canceled” tag is applied to a contact due to them cancelling your service, send emails that invite the customer to return. The messages are delivered at intervals after canceling and can be edited to what makes sense for your
+                      business. You could apply the "Canceled" tag with a service such as Zapier.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Failed Billing Reminders</h3>
+                    <p>When a tag is applied indicating a customer's billing has failed, deliver reminders to update their payment. This tag could be added manually, or by a third party integration.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Invitation to Talk on Repeat Views of Pricing Page</h3>
+                    <p>Invite contacts who repeatedly visit your pricing page to schedule an appointment. If they do schedule an appointment, create a deal record so you can keep leads organized. Use this along with a scheduling solution like Calendly or
+                      Acuity.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Automate Sales Pipeline</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Welcome Series</h3>
+                    <p>Send a small welcome series to new contacts as soon as they are added to your list. After a few days, we’ll check to see if they opened the welcome email. If so, we’ll send them a follow-up message with a little more depth. If not,
+                      we’ll send them a reworking of the welcome email with a new subject line and slightly different messaging.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Recommended, Strengthen Relationship</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Sync Deal Fields From Form Submit</h3>
+                    <p>Gather information from a form submit to be entered into the contact’s deal record, allowing you to store specific data on each deal allowing informed decisions regarding your sales funnel. Before importing this recipe, build the following:
+                      ActiveCampaign form, deal custom fields that match the form contact fields.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Management</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Won Deal Metrics</h3>
+                    <p>Upon winning a deal, the deal owner is sent an email containing a form link to identify what drove the sale. This information is then added to the won deal and can be used to further shape your evolving sales plan. Before importing
+                      this recipe, build the following: ActiveCampaign form, Won Reason deal custom field of your chosen type, Won Reason contact custom field of the same type.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Automate Sales Pipeline</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Lost Deal Metrics</h3>
+                    <p>When a deal is marked Lost, send out an email to the contact thanking them for their time and asking them to fill out a short survey of what were the factors in their decision. You could use this data to further shape your evolving
+                      sales plan. Alternatively, you could use a Notify Someone step instead of the Send Email step to ask the deal owner if you would prefer not to follow up with a lost deal directly. Before importing this recipe, build the following:
+                      ActiveCampaign Form, Lost Reason deal custom field of your chosen type, Lost Reason contact custom field of the same type.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Automate Sales Pipeline</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Notify When Deal Has Not Closed</h3>
+                    <p>Alert your deal owner when a deal has not closed by your anticipated close date. This allows the deal owner to then either double down their efforts to win the deal, denote a cold lead, or mark the deal as lost. A tag is then added
+                      that the deal exceeded the forecast so that the expected close time can be realistically adjusted. Before importing this recipe, build the following: A date-based deal custom field for expected close date.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Automate Sales Pipeline</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Sync Deal Field Changes</h3>
+                    <p>Update deal fields when their corresponding contact custom field is updated, such as with a form submission. This allows you to store updated data on each deal to make informed decisions regarding your sales funnel.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Management</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Tagging Based on Custom Fields</h3>
+                    <p>After a form submit, the contact will travel down a series of actions that check for the value in the selected form field. A tag is then generated based on the value present in the custom field. Before importing this recipe, build
+                      the following: ActiveCampaign form.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Management</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Abandoned Cart Reminder</h3>
+                    <p>Send out an email to contacts who abandon a cart. Include an Abandoned Cart block in the email sent out to show the product information of what they had abandoned. This is a powerful tool to incentivize contacts to finish their purchase.
+                      eCommerce integration is required.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Prospect Follow-up, Recommended</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Frequently Abandoned Cart Notification</h3>
+                    <p>Tag contacts who have abandoned a cart one or more times. If they abandon the cart three or more times without ever making a purchase, it notifies you via email and creates a task to call the contact and help answer any questions they
+                      may have.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Prospect Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>First Time Abandon Cart Hook</h3>
+                    <p>Offer contacts who abandon a cart for the first time a special deal to recover the cart. If they trigger the automation again by abandoning a cart, they are sent a message about the abandoned cart, but not the special offer. This creates
+                      an opportunity to convert first time contacts to customers.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Prospect Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>After Purchase Follow Up</h3>
+                    <p>After a contact purchases a product from you, you can begin an automated follow up sequence that increases satisfaction by helping a new customer gain as much value as possible from their purchase. Also known as an onboarding sequence,
+                      you can make the new customer aware of resources available to them, such as help documents and support channels. You can give them tips and tricks for getting started, and then send advanced suggestions for getting the most out of
+                      it.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Follow-up, Strengthen Relationship</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Store Last Purchase Date</h3>
+                    <p>This simple automation stores the date of the last purchase. This is useful for triggering other automations based on the date of last purchase. The next automation uses this date field to remind someone it’s time to make another purchase.
+                      You can set an “Advanced” condition on this automation’s trigger so that it only stores the date of a certain product. Build a date-based custom field before importing this recipe.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Automate Sales Pipeline, Track Contacts</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Reminder to Re-purchase</h3>
+                    <p>If you have a product that needs to be replenished after a certain amount of time, you can send a campaign to remind someone that it’s probably time to reorder. This can help you decrease the time between purchases and increase customer
+                      lifetime value. This automation is triggered by a date field. You’ll need a custom date field that stores the date of last purchase. You may want to give an incentive to motivate them to make the purchase now rather than putting
+                      it off.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Request for Review After Purchase</h3>
+                    <p>Reviews can be powerful social proof. It shows that people trust your store and/or recommend a certain product. It can help people stay on your site rather than seeking out third-party reviews before making a purchase.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Gather Feedback After Purchase</h3>
+                    <p>Asking for feedback after a purchase allows you to proactively address customer concerns. You may learn about an annoyance during the checkout process, find discrepancies in expectations on shipping times, or gain valuable insight
+                      you can leverage during your new customer onboarding. Your unhappy customers will help you improve your business and your happy customers will give you testimonials you can leverage to make your marketing more effective.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Follow-up, Strengthen Relationship</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Send A Notification on Purchase</h3>
+                    <p>You may want to receive notifications when certain products are purchased, or you may need to notify an employee or third-party, such as a drop-shipper to get an item in the mail. This simple automation sends a notification that will
+                      attach details about the contact who made the purchase. You can specify which products trigger the automation by using the segmenting options.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Automate Sales Pipeline, Contact Management</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Reward Customers on 5th Purchase</h3>
+                    <p>You may want to reward your best customers to further cement their loyalty to your company and encourage them to evangelize. This automation is triggered by the fifth purchase, but it could just as easily be triggered by a certain
+                      revenue amount by modifying the Advanced condition on the trigger.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Customer Follow-up, Strengthen Relationship</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>7 Day Drip Series</h3>
+                    <p>Deliver a series of messages over the course of 7 days. This framework can fit many needs from building to a big announcement to a series of helpful tips for your customers to remember.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Strengthen Relationship</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>eCommerce Sales Drip</h3>
+                    <p>Send a series of emails encouraging contacts to purchase your product. Automatically organize the contacts in this automation based on if they purchase during the series or not.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Prospect Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Determine Best Sales Drip</h3>
+                    <p>Use a split action to have contacts exposed to two different sales cycles. After a certain number of contacts have passed through the split action, a winner is determined based on sales driven results. Apply what you have discovered
+                      about what works to later sales messaging.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Prospect Follow-up</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Special Day Coupon</h3>
+                    <p>Send your contacts a coupon to celebrate a special day such as a birthday or anniversary. This is a nice annual thank you to your contacts and a reason for them to engage again. Before importing this recipe, build a date-based custom
+                      field</p>
+                    <p class="category"><i class="fas fa-archive"></i> Strengthen Relationship</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Join Date Automation</h3>
+                    <p>Send out an annual email to your subscribers thanking them. You can build out a unique email for each year and personalize them. This is currently set up with the steps for two years, but you can keep building out as needed.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Strengthen Relationship</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Special Offer Split - # of Contacts</h3>
+                    <p>Run a special offer to a limited number of contacts, based on form submittal. After the desired number of contacts have gone down the path with the special offer, any following contacts go down a path with a different message encouraging
+                      them to try again on the next special offer. Before importing this recipe, build an ActiveCampaign form.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Automate Sales Pipeline</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Special Offer Split- Date Based</h3>
+                    <p>Run a special offer for a limited time. When contacts fill out your form for the special offer, they will go down a path with the offer until the specified date and time, then will go down a path with a message letting them know the
+                      offer has passed. Before importing this recipe, build an ActiveCampaign form.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Automate Sales Pipeline</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Form Personalization Follow-up</h3>
+                    <p>Send a follow-up email based on the choices a contact makes on a form. This is a great way to start introducing personalization early to your subscribers, letting them know they will only receive information important to them. You
+                      could specify your contact’s industry, send specified product information, or gauge how familiar your contact is with your services.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Management</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+                  <li>
+                    <h3>Highly Engaged Customer Feedback</h3>
+                    <p>Identify your most engaged contacts and send them an email requesting any ideas/feedback they may have. Contacts who go the extra mile and provide feedback are then tagged for segmenting.</p>
+                    <p class="category"><i class="fas fa-archive"></i> Contact Management, Grow Your Community</p>
+                    <span class="favorite"><i class="icon icon-heart-filled"></i></span>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- END of .workflow -->
+
+  </section>
+  <!-- END of .hl_wrapper -->
+
+  <!-- ======================= Outdated Browser (Supports IE10 & Above) ======================= -->
+  <div id="outdated" aria-hidden="true">
+    <h5>:(</h5>
+    <h6>Your browser is out-of-date!</h6>
+    <p>This website is built using latest technologies. Unfortunately your browser doesn't support those. Please update your browser to view this website correctly. Thank you.<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank">Update my browser now </a>
+    </p>
+  </div>
+  <!-- ================================= END: Outdated Browser ================================ -->
+</body>
+
 </html>
